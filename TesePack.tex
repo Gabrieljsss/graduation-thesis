@@ -1,0 +1,180 @@
+\usepackage{layout}
+\setlength{\textwidth}{15.0 cm}
+\setlength{\textheight}{25.0 cm}
+
+\usepackage{dirtree}
+\usepackage[english]{babel}
+\usepackage{pagina}	% pagina-padrao
+\usepackage{indentfirst}		% for indent
+\usepackage[utf8]{inputenc}
+\usepackage{graphics,epsfig}
+\usepackage{graphics}
+\graphicspath{{./figuras/}}
+\usepackage{pstricks,pst-node,pst-tree}
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+%\usepackage{makeidx}
+%\makeindex
+\usepackage[figuresright]{rotating} % for saydways tables and figures
+\usepackage{enumerate}			% for configuration of enumerate environment
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{portland,multirow}
+
+\setcounter{secnumdepth}{3}	% numeracao ate subsubsecao
+\setcounter{tocdepth}{2}	% indice ate subsubsecao
+
+\usepackage{longtable}
+\usepackage{hyperref}
+
+
+\usepackage{listings}
+
+\newcommand{\SubItem}[1]{
+    {\setlength\itemindent{15pt} \item[-] #1}
+}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Color definitions
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{vscodeLightBackground}{rgb}{1, 1, 1} % Assuming a white background
+\definecolor{vscodeLightForeground}{rgb}{0.15, 0.15, 0.15} % Dark text for light background
+\definecolor{vscodeLightGray}{rgb}{0.5, 0.5, 0.5} % Light gray for non-intrusive elements
+\definecolor{vscodeLightBlue}{rgb}{0.12, 0.56, 1} % Blue for keywords
+\definecolor{vscodeLightRed}{rgb}{0.8, 0, 0} % Red for strings
+\definecolor{vscodeLightGreen}{rgb}{0, 0.6, 0} % Green for comments
+\definecolor{vscodeLightMagenta}{rgb}{0.78, 0.36, 0.76} % Magenta for special comments
+% Assuming numb, punct, and delim colors are intended for JSON
+\definecolor{numb}{rgb}{0.5, 0.5, 0.5} % grey for numbers
+\definecolor{punct}{rgb}{0, 0, 0} % black for punctuation
+\definecolor{delim}{rgb}{0.08, 0.38, 0.74} % blueish for delimiters
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\tiny\ttfamily, % Ensuring that the basic style uses monospace font
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    frame=single, % Adds a frame around the code
+    framexleftmargin=8pt, % Adjust padding on the left of the frame
+    framexrightmargin=8pt, % Adjust padding on the right of the frame
+    framextopmargin=5pt, % Adjust padding at the top of the frame
+    framexbottommargin=5pt, % Adjust padding at the bottom of the frame
+    xleftmargin=10pt, % Adjust left margin of the listing
+    xrightmargin=10pt % Adjust right margin of the listing
+}
+
+\lstdefinelanguage{javascript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]",
+  basicstyle=\tiny\ttfamily, % Adjusted font size
+}
+
+\lstdefinestyle{js}{
+    basicstyle=\tiny\ttfamily, % Adjusted font size
+    language=JavaScript,
+}
+
+
+% Correcting the language definition for JSON
+\lstdefinelanguage{json}{
+    basicstyle=\tiny\ttfamily\color{vscodeLightForeground}, % Adjusted font size with color preservation
+    numbers=left,
+    numberstyle=\scriptsize\color{vscodeLightGray},
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{vscodeLightBackground},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+\lstset{style=mystyle} % Applying the defined style globally
+
+% PHP language definition for listings
+\lstdefinelanguage{PHP}{
+  morekeywords={__halt_compiler, abstract, and, array, as, break, callable, case, catch, class, clone, const, continue, declare, default, die, do, echo, else, elseif, empty, enddeclare, endfor, endforeach, endif, endswitch, endwhile, eval, exit, extends, final, finally, for, foreach, function, global, goto, if, implements, include, include_once, instanceof, insteadof, interface, isset, list, namespace, new, or, print, private, protected, public, require, require_once, return, static, switch, throw, trait, try, unset, use, var, while, xor, yield},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morecomment=[s]{/**}{*/}, % For PHPDoc
+  morestring=[b]',
+  morestring=[b]",
+  keywordstyle=\color{vscodeLightBlue}\bfseries,
+  commentstyle=\color{vscodeLightGreen}\ttfamily,
+  stringstyle=\color{vscodeLightRed}\ttfamily,
+  basicstyle=\tiny\ttfamily,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  frame=single,
+  framexleftmargin=8pt,
+  framexrightmargin=8pt,
+  framextopmargin=5pt,
+  framexbottommargin=5pt,
+  xleftmargin=10pt,
+  xrightmargin=10pt
+}
+
+\lstset{language=PHP, style=mystyle} % Apply the PHP style
+
+\usepackage{url,etoolbox}
+\appto\UrlSpecials{%
+  \do\F{\penalty0 \mathchar`\F }%
+  \do\L{\penalty0 \mathchar`\L }%
+  \do\N{\penalty0 \mathchar`\N }%
+}
+
+
+
+

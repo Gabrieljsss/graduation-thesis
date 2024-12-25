@@ -1,0 +1,211 @@
+% Declaracao
+\begin{center}
+Declaração de Autoria e de Direitos
+\end{center}
+
+\vspace{0.5cm}
+
+Eu, \emph{Gabriel José Souza e Silva} CPF \emph{062.777.747-35}, autor da monografia \emph{REDESIGNING THE LHCB COLLABORATION MANAGEMENT SYSTEM: FROM A FRAMEWORK-BASED MONOLITH TO A DDD AND HEXAGONAL ARCHITECTURE INSPIRED MODULAR MONOLITH}, subscrevo para os devidos fins, as seguintes informações:\\
+1. O autor declara que o trabalho apresentado na disciplina de Projeto de Graduação da Escola Politécnica da UFRJ é de sua autoria, sendo original em forma e conteúdo.\\
+2. Excetuam-se do item 1. eventuais transcrições de texto, figuras, tabelas, conceitos e idéias, que identifiquem claramente a fonte original, explicitando as autorizações obtidas dos respectivos proprietários, quando necessárias.\\
+3. O autor permite que a UFRJ, por um prazo indeterminado, efetue em qualquer mídia de divulgação, a publicação do trabalho acadêmico em sua totalidade, ou em parte. Essa autorização não envolve ônus de qualquer natureza à UFRJ, ou aos seus representantes.\\
+4. O autor pode, excepcionalmente, encaminhar à Comissão de Projeto de Graduação, a não divulgação do material, por um prazo máximo de 01 (um) ano, improrrogável, a contar da data de defesa, desde que o pedido seja justificado, e solicitado antecipadamente, por escrito, à Congregação da Escola Politécnica.\\
+5. O autor declara, ainda, ter a capacidade jurídica para a prática do presente ato, assim como ter conhecimento do teor da presente Declaração, estando ciente das sanções e punições legais, no que tange a cópia parcial, ou total, de obra intelectual, o que se configura como violação do direito autoral previsto no Código Penal Brasileiro no art.184 e art.299, bem como na Lei 9.610.\\
+6. O autor é o único responsável pelo conteúdo apresentado nos trabalhos acadêmicos publicados, não cabendo à UFRJ, aos seus representantes,  ou ao(s) orientador(es), qualquer responsabilização/ indenização nesse sentido.\\
+7. Por ser verdade, firmo a presente declaração.\\
+
+      \vspace{0.5cm}
+      \begin{flushright}
+         \parbox{10cm}{
+            \hrulefill
+
+            \vspace{-.375cm}
+            \centering{Gabriel José Souza e Silva}
+
+            \vspace{0.1cm}
+         }
+      \end{flushright}
+      
+\pagebreak
+
+% Copyright
+      \vspace{0.5cm}
+
+UNIVERSIDADE FEDERAL DO RIO DE JANEIRO \\
+Escola Politécnica - Departamento de Eletrônica e de Computação \\
+Centro de Tecnologia, bloco H, sala H-217, Cidade Universitária \\ 
+Rio de Janeiro - RJ      CEP 21949-900\\
+\vspace{0.5cm}
+\paragraph{}Este exemplar é de propriedade da Universidade Federal do Rio de Janeiro, que poderá incluí-lo em base de dados, armazenar em computador, microfilmar ou adotar qualquer forma de arquivamento.
+\paragraph{}É permitida a menção, reprodução parcial ou integral e a transmissão entre bibliotecas deste trabalho, sem modificação de seu texto, em qualquer meio que esteja ou venha a ser fixado, para pesquisa acadêmica, comentários e citações, desde que sem finalidade comercial e que seja feita a referência bibliográfica completa.
+\paragraph{}Os conceitos expressos neste trabalho são de responsabilidade do(s) autor(es).
+
+
+\pagebreak
+
+% Agradecimento
+\begin{center}
+\textbf{AGRADECIMENTO}
+\end{center}
+      \vspace{0.5cm}
+
+\paragraph{} Os resultados apresentados neste trabalho jamais seriam alcançados sem minha família, amigos e professores. A estes, devo um eterno agradecimento. Principalmente, agradeço à minha mãe, Marize, e ao meu pai, Márcio, por todo o suporte e incentivo ao longo de toda a vida. Ambos, através de muito esforço, sempre me proporcionaram todos os insumos necessários para seguir com minha formação, além de serem minha fonte eterna de inspiração. Agradeço também à minha avó Ciléia pelo exemplo de trabalho e dedicação e por todo o carinho a mim dado. Agradeço também à minha namorada, Carol, por nunca ter me deixado desistir, estando presente mesmo quando estive a 9200 km de distância.
+
+\begin{otherlanguage}{portuguese}
+\paragraph{} Agradeço aos professores que me ensinaram não só conhecimentos técnicos, mas também a importância do pensamento científico e da educação. Em especial, agrade-ço aos meus professores do CEFET UnED Nova Friburgo por terem construído o pilar sustentador da minha formação.
+\end{otherlanguage}
+
+
+\paragraph{} Obrigado também aos meus amigos de infância, Arthur, Tomás, Lúcio e Bruno, com os quais compartilhei a maior parte da vida. Obrigado também aos amigos da UFRJ que, através de muito trabalho em equipe, tornaram a jornada na Universidade mais leve.
+
+\paragraph{} Agradeço também àqueles que foram minha família na Suíça: Mário, Gabriel, Michelly, Gustavo, Marcelo, Leandro e Babi pela companhia em momentos que tanto precisei e pelos ensinamentos compartilhados. Agradeço também à Carmen, Joel e Glória por manterem o projeto Glance vivo, produzindo sistemas fundamentais para o funcionamento dos experimentos no CERN e transformando completamente a vida de todos aqueles que por ele passam.
+
+\paragraph{} Devo também reconhecer a contribuição da sociedade brasileira que financiou minha educação média, técnica e superior, possibilitando não só o desenvolvimento pessoal como também da sociedade como um todo, reduzindo a desigualdade no país.
+
+\paragraph{} 
+
+\pagebreak
+
+
+% Resumo
+\begin{center}
+\textbf{RESUMO}
+\end{center}
+      \vspace{0.5cm}
+
+\begin{otherlanguage}{portuguese}
+\paragraph{}O experimento Large Hadron Collider beauty (LHCb) no CERN especializa-se em investigar as sutis diferenças entre matéria e antimatéria. A gestão eficaz dos esforços colaborativos entre membros e instituições é crítica para o sucesso do experimento geo-distribuído. Este trabalho detalha a refatoração da Aplicação \textit{Web} de \textit{Membership} do LHCb de uma arquitetura monolítica baseada em \textit{framework} para uma arquitetura de Monolito Modular. Enfatizando o princípio de Segregação de Responsabilidades, o projeto busca melhorar a modularidade, encapsulamento e estratificação, estabelecendo limites claros entre \textit{frontend} e \textit{backend}, que se comunicam por meio de um contrato de API imutável. Além disso, o processo de refatoração inclui revalidação e coleta de novos requisitos de software para alinhar o \textit{Membership} mais estreitamente com os fluxos de trabalho realizados no dia-a-dia da colaboração. O projeto introduz uma aplicação inspirada em \textit{Domain Driven Design}, utilizando a Arquitetura Hexagonal para a implementação concreta. Adicionalmente, foi realizado o desenvolvimento de uma biblioteca de busca para consulta de entidades no banco de dados resolvendo limitações da implementação anterior e melhorando a integração de dados com sistemas externos. A necessidade deste projeto surge das deficiências arquitetônicas do sistema existente, especialmente sua falta de flexibilidade para acomodar novos requisitos e integrar melhorias. Este trabalho delineia os objetivos, escopo, metodologia e justificativa do projeto, fornecendo uma base para uma análise aprofundada da arquitetura de software e sua implantação. Também apresenta evidências empíricas das melhorias de produtividade alcançadas pela equipe após a adoção do novo stack tecnológico.\end{otherlanguage}
+\paragraph{}
+\noindent Palavras-Chave: Software architecture, Domain Driven Design, REST API, Search Tooling, Modular Monolith, CERN, LHCb.
+
+\pagebreak
+
+
+% Abstract
+\begin{center}
+\textbf{ABSTRACT}
+\end{center}
+      \vspace{0.5cm}
+
+\paragraph{}The Large Hadron Collider beauty (LHCb) experiment at CERN specializes in investigating the slight differences between matter and antimatter. Effective management of the collaborative efforts among members and institutions is critical for the geo-distributed experiment's success. This work details the refactoring of the LHCb Membership Web Application from a framework-based monolithic to a Modular Monolith architecture. Emphasizing the principle of Separation of Concerns, the project seeks to improve modularity, encapsulation, and layering, establishing distinct boundaries between frontend and backend communicating through a strict API contract. Furthermore, the refactoring process includes revalidation and collection of software requirements to align the Membership System more closely with actual collaboration workflows. It introduces a Domain-Driven Design inspired application, utilizing the Hexagonal Architecture for the concrete implementation. Additionally, the development of a search library for querying database entities addresses previous limitations and enhances integration with external systems. The need for this project arises from the existing system's architectural deficiencies, especially its lack of flexibility to accommodate new requirements and integrate enhancements. This document delineates the project's objectives, scope, methodology, and rationale, providing a foundation for an in-depth analysis of the software architecture and its deployment. It also presents empirical evidence of the productivity improvements achieved by the team following the adoption of the new technology stack.
+
+\paragraph{}
+\noindent Key-words: Software architecture, Domain Driven Design, REST API, Search Tooling, Modular Monolith, CERN, LHCb.
+
+\pagebreak
+
+
+% Siglas
+\begin{center}
+\textbf{ACRONYMS}
+\end{center}
+      \vspace{0.5cm}
+
+\noindent CERN - The European Organization for Nuclear Research
+
+\noindent API - Application Programming Interface
+
+\noindent ATLAS - A Toroidal LHC ApparatuS
+
+\noindent CMS - Compact Muon Solenoid
+
+\noindent ALICE - A Large Ion Collider Experiment
+
+\noindent SQL - Structured Query Language
+
+\noindent FENCE - Frontend Engine for Glance
+
+\noindent JSON - JavaScript Object Notation
+
+\noindent LPS - Laboratório de Processamento de Sinais
+
+\noindent RFC - Request for comments
+
+\noindent COPPE - Instituto Alberto Luiz Coimbra de Pós-Graduação e Pesquisa de Engenharia
+
+\noindent Poli - Escola Politécnica Da UFRJ
+
+\noindent CRUD - Create, Read, Update, Delete
+
+\noindent LBEMS - LHCb Equipment Management System
+
+\noindent LHC - Large Hadron Collider
+
+\noindent CGI - Common Gateway Interface
+
+\noindent OOP - Object-Oriented Programming
+
+\noindent ORM - Object-Relational Mapping
+
+\noindent MVC - Model-View-Controller
+
+\noindent SSH - Secure Shell
+
+\noindent PUC - Pontifícia Universidade Católica de São Paulo
+
+\noindent JQL - Jira Query Language
+
+\noindent GQL - Glance Query Language
+
+\noindent UI - User Interface
+
+\noindent CB - Collaboration Board
+
+\noindent EB - Editorial Board
+
+\noindent HR - Human Resources
+
+\noindent EB - Editorial Board
+
+\noindent TL - Team Leader
+
+\noindent DDD -  Domain-Driven Design
+
+\noindent GDPR - General Data Protection Regulation
+
+\noindent EU - European Union
+
+\noindent EEA - European Economic Area
+
+\noindent CORS - Cross-Origin Resource Sharing
+
+\noindent FRAPI - The FENCE REST API
+
+\noindent SPA - Single-Page Application
+
+\noindent GRAPPA - GRoups for APPlications Authorization
+
+\noindent SSO - Single Sign-On
+
+\noindent SAML - Security Assertion Markup Language
+
+\noindent OAS - OpenAPI Specification
+
+\noindent DTO - Data Transfer Object
+
+\noindent CI/CD - Continuous Integration/Continuous Deployment
+
+\noindent CLI - Command Line Interface
+
+\noindent CBPF - Centro Brasileiro de Pesquisas Físicas
+
+\noindent SFC - Single-File Component
+
+\noindent BC - Bounded Context
+
+\noindent ECGD - Early Career, Gender \& Diversity Office
+
+\noindent CFD - Cumulative Flow Diagram
+
+\noindent SDK - Software Development Kit
+
+
+
+\pagebreak
+
+
+
+
+
+
+
